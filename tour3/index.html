@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+     
+        #comments {
+            padding: 2rem;
+            background-color: #f9f9f9;
+        }
+
+        #comments h3 {
+            margin-bottom: 1rem;
+        }
+
+        #commentForm {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #commentText {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #commentForm button {
+            width: 6rem; 
+    height: 3rem;  
+    background-color: #ce1609;
+    color: white;  
+    border: none;   
+    border-radius: 5px; 
+    font-size: 1rem; 
+    cursor: pointer; 
+    display: block; 
+    margin: 0 auto; 
+    text-align: center;
+        }
+
+        #commentForm button:hover {
+            background-color: #0056b3;
+        }
+
+        #commentSection {
+            margin-top: 2rem;
+        }
+
+        #commentSection p {
+            padding: 1rem;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="layar-dalam">
+            <div class="logo">
+                <a href=""><img src="asset/logo-white.png" class="putih"></a>
+                <a href=""><img src="asset/logo-black.png" class="hitam"></a>
+            </div>
+            <div class="menu">
+                <a href="#" class="tombol-menu">
+                    <span class="garis"></span>
+                    <span class="garis"></span>
+                    <span class="garis"></span>
+                </a>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#aboutus">Tentang Kami</a></li>
+                    <li><a href="#support">Dukungan</a></li>
+                    <li><a href="#gallery">Galeri</a></li>
+                    <li><a href="#team">Tim</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                    <li><a href="#comments">Komentar</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="layar-penuh">
+        <header id="home">
+            <div class="overlay"></div>
+            <video autoplay muted loop>
+                <source src="asset/video-indonesia.mp4" type="video/mp4"/>
+            </video>
+            <div class="intro">
+                <h3>Kunjungi Indonesia</h3>
+                <p>Jelajahi keindahan alam dan budaya yang menakjubkan di seluruh Indonesia.</p>
+                <p>
+                    <a href="file:///D:/tour3/Booking/Booking.html" class="tombol">BOOKING SEKARANG</a>
+                </p>
+            </div>
+        </header>
+        <main>
+            <section id="aboutus">
+                <div class="layar-dalam">
+                    <h3>Tentang Kami</h3>
+                    <p class="ringkasan">Kami adalah penyedia layanan perjalanan yang berdedikasi untuk menunjukkan keindahan Indonesia kepada dunia.</p>
+                    <div class="konten-isi">
+                        <p>
+                           Dengan tim profesional dan berpengalaman, kami menawarkan berbagai paket wisata yang akan membuat perjalanan Anda tak terlupakan.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="abuabu" id="support">
+                <div class="layar-dalam support">
+                    <div>
+                        <img src="asset/matahari.png"/>
+                        <h6>Dalam Segala Kondisi</h6>
+                        <p>Kami siap mendukung perjalanan Anda dalam segala kondisi cuaca dan situasi.</p>
+                    </div>
+                    <div>
+                        <img src="asset/tas.png" />
+                        <h6>Tim Profesional</h6>
+                        <p>Tim kami terdiri dari para profesional yang berpengalaman dan terlatih dalam industri pariwisata.</p>
+                    </div>
+                    <div>
+                        <img src="asset/kompas.png" />
+                        <h6>Pendaki Ahli</h6>
+                        <p>Kami memiliki pendaki ahli yang akan memandu Anda menjelajahi keindahan alam Indonesia.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="gallery">
+                <div class="gallery-item" data-title="Danau Toba" data-description="<p>Danau Toba adalah danau vulkanik terbesar di dunia, terletak di Sumatera Utara, Indonesia. Dengan keindahan alam yang menakjubkan dan legenda yang kaya, Danau Toba menarik wisatawan dari seluruh penjuru dunia untuk menikmati pesona alamnya yang memukau.</p><p>Anda dapat menikmati keindahan danau yang luas ini sambil mengeksplorasi pulau Samosir di tengahnya, atau bersantai di tepiannya yang indah.</p>">
+                    <img src="asset/foto1.jpg" />
+                    <h6>Danau Toba</h6>
+                </div>
+                <div class="gallery-item" data-title="Gunung Bromo" data-description="<p>Gunung Bromo terkenal dengan pemandangan matahari terbitnya yang menakjubkan. Terletak di Taman Nasional Bromo Tengger Semeru, Gunung Bromo menawarkan pengalaman mendaki dan menyaksikan alam yang spektakuler.</p>">
+                    <img src="asset/foto2.jpg" />
+                    <h6>Gunung Bromo</h6>
+                </div>
+                <div class="gallery-item" data-title="Raja Ampat" data-description="<p>Raja Ampat adalah surga bagi penyelam dengan terumbu karang yang spektakuler. Terletak di Papua Barat, Indonesia, Raja Ampat menawarkan keindahan bawah laut yang luar biasa, dengan keanekaragaman hayati yang kaya dan panorama bawah laut yang menakjubkan.</p>">
+                    <img src="asset/foto3.jpg" />
+                    <h6>Raja Ampat</h6>
+                </div>
+                <div class="gallery-item" data-title="Pulau Komodo" data-description="<p>Pulau Komodo adalah rumah bagi komodo, kadal terbesar di dunia. Terletak di Nusa Tenggara Timur, Indonesia, Pulau Komodo menawarkan pengalaman unik untuk melihat langsung habitat asli komodo dan keindahan alam pulau-pulau sekitarnya.</p>">
+                    <img src="asset/foto4.jpg" />
+                    <h6>Pulau Komodo</h6>
+                </div>
+                <div class="gallery-item" data-title="Banda Neira" data-description="<p>Banda Neira terkenal dengan sejarahnya sebagai pusat perdagangan rempah-rempah di masa lalu. Terletak di Kepulauan Banda, Maluku, Indonesia, Banda Neira menawarkan keindahan alam laut yang kaya serta peninggalan sejarah kolonial Belanda yang masih terjaga hingga saat ini.</p>">
+                    <img src="asset/foto5.jpg" />
+                    <h6>Banda Neira</h6>
+                </div>
+                <div class="gallery-item" data-title="Candi Prambanan" data-description="<p>Candi Prambanan adalah kompleks candi Hindu terbesar di Indonesia, terletak di Yogyakarta. Dikenal karena arsitektur yang megah dan keindahan relief-reliefnya, Candi Prambanan merupakan warisan budaya dunia yang harus dikunjungi bagi para pecinta sejarah dan kebudayaan.</p>">
+                    <img src="asset/foto6.jpg" />
+                    <h6>Candi Prambanan</h6>
+                </div>
+                <div class="gallery-item" data-title="Lokawisata Baturaden" data-description="<p>Lokawisata Baturaden menawarkan pemandangan alam yang indah dan udara segar. Terletak di Banyumas, Jawa Tengah, Baturaden dikenal dengan keindahan alam pegunungan serta air terjun yang menyejukkan, menjadi tempat ideal untuk bersantai dan menikmati alam.</p>">
+                    <img src="asset/foto7.jpg" />
+                    <h6>Lokawisata Baturaden</h6>
+                </div>
+                <div class="gallery-item" data-title="Pantai Parangtritis" data-description="<p>Pantai Parangtritis adalah pantai terkenal di Yogyakarta dengan pasir hitamnya dan panorama laut yang memukau. Selain menikmati sunset yang indah, Pantai Parangtritis juga memiliki nilai historis dan legenda yang kental dalam budaya Jawa, menambah daya tariknya sebagai tujuan wisata.</p>">
+                    <img src="asset/foto8.jpg" />
+                    <h6>Pantai Parangtritis</h6>
+                </div>
+            </section>
+            
+            <section class="quote">
+                <div class="layar-dalam">
+                    <p>Di setiap sudut Jogja membawa cerita masing-masing bagi pengunjungnya. Sama sepertiku yang punya cerita denganmu disana</p>
+                </div>
+            </section>
+            <section id="team">
+                <div class="layar-dalam">
+                    <h3>Tim Kami</h3>
+                    <p class="ringkasan">Tim kami terdiri dari individu-individu yang bersemangat dan berdedikasi dalam industri pariwisata.</p>
+                    <div class="tim">
+                        <div>
+                            <img src="asset/tim0.jpg" />
+                            <h6>Prima</h6>
+                            <span>Indonesia</span>
+                        </div>
+                        <div>
+                            <img src="asset/tim2.jpg" />
+                            <h6>Dzaky</h6>
+                            <span>Palestina</span>
+                        </div>
+                        <div>
+                            <img src="asset/tim3.jpg" />
+                            <h6>Hibatulloh</h6>
+                            <span>Laos</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="abuabu" id="blog">
+                <div class="layar-dalam">
+                    <h3>Blog Terbaru</h3>
+                    <p class="ringkasan">Temukan artikel-artikel menarik tentang destinasi wisata di Indonesia.</p>
+                    <div class="blog">
+                        <div class="area">
+                            <div class="gambar" style="background-image: url('asset/blog1.jpg');"></div>
+                            <div class="text">
+                                <article>
+                                    <h4><a href="https://www.indonesia.travel/id/id/ide-liburan/6-aktivitas-seru-yang-wajib-dicoba-saat-ke-taman-nasional-bromo-tengger-semeru.html">Apa yang Menarik di Bromo?</a></h4>
+                                    <p>Pelajari lebih lanjut tentang keindahan dan aktivitas yang bisa dilakukan di Gunung Bromo.</p>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="area">
+                            <div class="gambar" style="background-image: url('asset/blog2.jpg');"></div>
+                            <div class="text">
+                                <article>
+                                    <h4><a href="https://www.indonesia.travel/id/id/destinasi/java/yogyakarta.html">Pesona Yogyakarta</a></h4>
+                                    <p>Temukan daya tarik Yogyakarta, dari budaya hingga kuliner khasnya.</p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+       
+    <!-- Kolom Komentar -->
+    <section id="comments">
+        <div class="layar-dalam">
+            <h3>Kolom Komentar</h3>
+            <form id="commentForm">
+                <textarea id="commentText" placeholder="Tulis komentar Anda di sini..." required></textarea>
+                <button type="submit">KIRIM</button>
+            </form>
+            <div id="commentSection"></div>
+        </div>
+    </section>
+    
+</main>
+<footer id="contact">
+    <div class="layar-dalam">
+      <div>
+        <h5>Info</h5>
+        Dapatkan informasi terbaru tentang destinasi wisata dan paket perjalanan kami.
+      </div>
+      <div>
+        <h5>Kontak</h5>
+        Hubungi kami untuk informasi lebih lanjut atau jika Anda memiliki pertanyaan.
+      </div>
+      <div>
+        <h5>Bantuan</h5>
+        Kami siap membantu Anda dengan segala kebutuhan perjalanan Anda.
+      </div> 
+      <div>
+        <h5>Sitemap</h5>
+        Temukan semua halaman yang ada di situs kami.
+      </div> 
+    </div>
+    <div class="layar-dalam">
+        <div class="copyright">
+            &copy; 2024 Traveling By Prima
+        </div>
+</footer>
+</div>
+<div id="myModal" class="modal">
+<div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 id="modal-title"></h2>
+    <p id="modal-description"></p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="javascript.js"></script>
+<script>
+    document.getElementById('commentForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const commentText = document.getElementById('commentText').value;
+        const commentSection = document.getElementById('commentSection');
+        
+        const newComment = document.createElement('p');
+        newComment.textContent = commentText;
+        commentSection.appendChild(newComment);
+
+        document.getElementById('commentText').value = '';
+    });
+</script>
+</body>
+</html>

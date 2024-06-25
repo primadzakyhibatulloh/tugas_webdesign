@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <style>
+        body {
+            background-image: url('pantai.jpg'); /* Ganti dengan URL gambar latar belakang sesuai keinginan */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Warna latar belakang form */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .form-booking, .terimakasih {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+        .form-booking h2, .terimakasih h2 {
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: calc(100% - 22px); /* Adjust to fit within container width */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .form-group select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: transparent;
+            background-image: url("data:image/svg+xml,%3Csvg fill='%23555' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px top 50%;
+            background-size: 12px;
+            padding-right: 30px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .terimakasih {
+            display: none;
+        }
+        .price {
+            font-weight: bold;
+            font-size: 18px;
+            color: #555;
+        }
+        .terimakasih p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        .terimakasih p span {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-booking">
+            <h2>Formulir Booking Tiket</h2>
+            <form id="booking-form">
+                <div class="form-group">
+                    <label for="nama">Nama:</label>
+                    <input type="text" id="nama" name="nama" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tanggal">Tanggal Berangkat:</label>
+                    <input type="date" id="tanggal" name="tanggal" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tujuan">Tujuan:</label>
+                    <select id="tujuan" name="tujuan" required>
+                        <option value="">Pilih Tujuan</option>
+                        <option value="danautoba">Danau Toba</option>
+                        <option value="gunungbromo">Gunung Bromo</option>
+                        <option value="rajaampat">Raja Ampat</option>
+                        <option value="pulaukomodo">Pulau Komodo</option>
+                        <option value="bandaneira">Banda Neira</option>
+                        <option value="candiprambanan">Candi Prambanan</option>
+                        <option value="lokawisatabaturaden">Lokawisata Baturaden</option>
+                        <option value="pantaiparangtritis">Pantai Parangtritis</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="harga">Harga Tiket:</label>
+                    <span id="harga" class="price"></span>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div id="terimakasih" class="terimakasih">
+            <h2>Terima kasih, Booking Anda Sudah Kami Catat!</h2>
+            <p><strong>Nama:</strong> <span id="terimakasih-nama"></span></p>
+            <p><strong>Tanggal Berangkat:</strong> <span id="terimakasih-tanggal"></span></p>
+            <p><strong>Tujuan:</strong> <span id="terimakasih-tujuan"></span></p>
+            <p><strong>Harga Tiket:</strong> <span id="terimakasih-harga"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function getPrice(destination) {
+            const prices = {
+                danautoba: 2000000,
+                gunungbromo: 1500000,
+                rajaampat: 5000000,
+                pulaukomodo: 3000000,
+                bandaneira: 2500000,
+                candiprambanan: 1000000,
+                lokawisatabaturaden: 800000,
+                pantaiparangtritis: 1200000
+            };
+            return prices[destination] || 0;
+        }
+
+        function formatText(text) {
+            switch (text.toLowerCase()) {
+                case 'rajaampat':
+                    return 'Raja Ampat';
+                case 'danautoba':
+                    return 'Danau Toba';
+                case 'gunungbromo':
+                    return 'Gunung Bromo';
+                case 'pulaukomodo':
+                    return 'Pulau Komodo';
+                case 'bandaneira':
+                    return 'Banda Neira';
+                case 'candiprambanan':
+                    return 'Candi Prambanan';
+                case 'lokawisatabaturaden':
+                    return 'Lokawisata Baturaden';
+                case 'pantaiparangtritis':
+                    return 'Pantai Parangtritis';
+                default:
+                    return text;
+            }
+        }
+
+        document.getElementById("tujuan").addEventListener("change", function() {
+            var hargaSpan = document.getElementById("harga");
+            var selectedDestination = this.value;
+            var harga = getPrice(selectedDestination);
+            hargaSpan.textContent = "Rp " + harga.toLocaleString();
+        });
+
+        document.getElementById("booking-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var nama = document.getElementById("nama").value;
+            var tanggal = document.getElementById("tanggal").value;
+            var tujuan = document.getElementById("tujuan").value;
+            var formattedTujuan = formatText(tujuan); // Memanggil formatText untuk memperbaiki format tujuan
+            var harga = document.getElementById("harga").textContent;
+
+            document.querySelector(".form-booking").style.display = "none";
+            document.getElementById("terimakasih").style.display = "block";
+            document.getElementById("terimakasih-nama").textContent = nama;
+            document.getElementById("terimakasih-tanggal").textContent = tanggal;
+            document.getElementById("terimakasih-tujuan").textContent = formattedTujuan; // Menampilkan tujuan dengan format yang diperbaiki
+            document.getElementById("terimakasih-harga").textContent = harga;
+        });
+    </script>
+</body>
+</html>
